@@ -1,65 +1,48 @@
 <template>
   <section class="container">
-    <div>
-      <app-logo/>
-      <h1 class="title">
-        client
-      </h1>
-      <h2 class="subtitle">
-        Win Party Client
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
+    <h1>Win Party!</h1>
+    <div class="buttons">
+      <b-button size="is-large"
+          type="is-info"
+          @click="addCount1"
+          icon-left="thumb-up-outline">
+          いいね！{{count1}}
+      </b-button>
+      <b-button size="is-large"
+          type="is-info"
+          @click="addCount2"
+          icon-left="thumb-up-outline">
+          いいね！{{count2}}
+      </b-button>
+      <b-button size="is-large"
+          type="is-info"
+          @click="addCount3"
+          icon-left="thumb-up-outline">
+          いいね！{{count3}}
+      </b-button>
     </div>
   </section>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
-
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
 export default {
-  components: {
-    AppLogo
+  computed: {
+    count1 () { return this.$store.state.counter.count_1 }
+    , count2 () { return this.$store.state.counter.count_2 }
+    , count3 () { return this.$store.state.counter.count_3 }
+  },
+  methods: {
+    addCount1 (e) {
+      this.$store.commit('counter/add1')
+    }
+    , addCount2 (e) {
+      this.$store.commit('counter/add2')
+    }
+    , addCount3 (e) {
+      this.$store.commit('counter/add3')
+    }
   }
 }
 </script>
-
-<style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
-

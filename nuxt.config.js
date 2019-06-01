@@ -1,4 +1,10 @@
 module.exports = {
+  modules: [
+    ['nuxt-buefy', {
+      css: false,
+      // materialDesignIcons: false
+    }],
+  ],
   /*
   ** Headers of the page
   */
