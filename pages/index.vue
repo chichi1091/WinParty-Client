@@ -22,7 +22,7 @@
       </b-button>
     </div>
     <div>
-        <PieChart :chartData="pieChartData" :options="options"></PieChart>
+        <PieChart :chartData="pieChartData" :options="options" :width="450" :height="450"></PieChart>
     </div>
   </section>
 </template>
@@ -39,6 +39,7 @@ export default {
     data() {
         return {
             options : {
+                maintainAspectRatio:false,
                 title: {
                     display: true,
                     text: ''
